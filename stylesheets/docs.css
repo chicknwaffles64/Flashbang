@@ -1,3 +1,9 @@
+:root{
+    --hue1: hsl(202, 100%, 58%);
+    --hue2: hsla(192, 100%, 50%, 0.2);
+    --hue3: hsl(258, 100%, 87%);
+}
+
 /*GOOGLE DOCS HOMEPAGE*/
     .docs-homescreen-grid-item-title, 
     .docs-hs-tmp-contractedheader-text, 
@@ -37,22 +43,105 @@
             background-color: #302f2f;
         }
 
+/*TOP TOOLBAR SECTION*/
+#docs-chrome,
+.docs-titlebar-buttons{
+    background: #1e1e1e !important;
+}
+.menu-button{
+    color: white !important;
+    margin-top: 0 !important;
+}
+.goog-control-hover{
+    background-color: #ffffff3e !important;
+}
+#docs-primary-toolbars,
+#docs-side-toolbar,
+.docs-titlebar-badge,
+.jfk-button,
+.goog-toolbar-button,
+.goog-toolbar-menu-button,
+.docs-companion-app-switcher-container,
+.kix-titlebar-mode-switcher,
+#scb-quick-actions-menu
+{
+    background-color: var(--hue3) !important;
+}
+
+.docs-titlebar-badge, 
+.jfk-button 
+#docs-toolbar-wrapper,
+#docs-title-widget,
+#docs-parent-collections-container-outer{
+    border-radius: 2px !important;
+}
+
+    /*Top left toolbar section*/
+    #docs-menubar, #docs-titlebar-container{
+        margin-left: 70px !important;
+    }
+    #docs-title-widget,
+    .docs-titlebar-badges > * {
+        margin-right: 5px;
+    }
+    .docs-title-input, .docs-title-input:focus{
+        border: none !important;
+        color: black !important;
+        height: 25px !important;
+    }
+    #docs-parent-collections-container-outer,
+    #docs-title-widget{
+        height: 28px !important;
+    }
+    .docs-title-input, #docs-parent-collections-container-outer {
+        background-color: #dfdfdf !important;
+        color: transparent !important;
+    }
+
+    #docs-menubar{
+        max-height: 20px;
+        margin-top: 18px;
+        padding-bottom: 4px;
+        border-left: solid 1px #c8c8c8;
+        border-right: solid 1px white;
+    }
+    
+    /*Main editor toolbar*/
+    #docs-toolbar-wrapper{
+        width: 100% !important;
+        background: none !important;
+        margin: 0 !important;
+        margin-top: 10px !important;
+        padding: 0 !important;
+        display: flex;
+    }
+    #docs-primary-toolbars {
+        padding-left: 40px !important;
+        flex: 2;
+    }
+    #docs-side-toolbar {
+        margin-right: 0   !important;
+        flex: 1;
+    }
+
 /*GOOGLE DOCS EDITOR*/
     .kix-appview-editor{
         background-color: rgb(52, 52, 52) !important;
     }
     .navigation-widget-floating-navigation-button.navigation-widget{
-        background: rgb(30, 30, 30) !important;
+        background: #1e1e1e !important;
 
     }
     .outlines-widget *{
     color: #ffffff !important;
     }
     .navigation-item.location-indicator-highlight *{
-        color: #2bb1ff !important;
+        color: var(--hue1) !important;
     }
-    .navigation-item.goog-button-hover *{
-        background-color: #fefefe27 !important;
+    .navigation-item.goog-button-hover *,
+    .goog-toolbar-button-hover, 
+    .goog-toolbar-menu-button-hover{
+        background-color: var(--hue2) !important;
     }
 
 
