@@ -38,3 +38,6 @@ d2l-menu-item-link:hover{
 .vui-selected, .vui-selected + li{
     border-top: 4px solid var(--hue3) !important;
 }
+#d2l_1_17_334 *{
+    color: black !important;
+}

@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
-    "name": "Flashbeng",
-    "version": "1.0",
+    "name": "Flashbang",
+    "version": "1.1",
   
     "description": "Dark mode for D2L, Google Docs & Google Drive to ease those weary eyes.",
   
@@ -15,12 +15,6 @@
   
     "content_scripts": [
       {
-        "matches": ["https://mycourses2.mcgill.ca/d2l/*", "https://learn.georgebrown.ca/d2l/*", "https://avenue.mcmaster.ca/d2l/*", "https://learn.uwaterloo.ca/d2l/*", "https://courses.torontomu.ca/d2l/*"],
-        "css": ["stylesheets/d2l.css"],
-        "js":["content_scripts/d2l.js"]
-        
-      },
-      {
         "matches": ["https://docs.google.com/*"],
         "css": ["stylesheets/docs.css"]
       },
@@ -28,11 +22,17 @@
         "matches": ["https://drive.google.com/*"],
         "css": ["stylesheets/drive.css"],
         "js":["content_scripts/drive.js"]
+      },
+      {
+        "matches": ["https://mycourses2.mcgill.ca/d2l/*", "https://learn.georgebrown.ca/d2l/*", "https://avenue.mcmaster.ca/d2l/*", "https://learn.uwaterloo.ca/d2l/*", "https://courses.torontomu.ca/d2l/*"],
+        "css": ["stylesheets/d2l.css"],
+        "js":["content_scripts/d2l.js"]
+        
       }
     ],
     "browser_action": {
         "browser_style": true,
-        "default_title": "Flashbeng"
+        "default_title": "Flashbang"
     },
     "options_ui": {
       "page": "./hueChanger/hue.html",
