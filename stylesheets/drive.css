@@ -1,0 +1,74 @@
+:root{
+    --hue1: hsl(171, 51%, 14%);
+    --hue2: hsl(171, 40%, 17%);
+    --hue3: hsl(152, 22%, 35%);
+}
+
+/*LEFT SIDE TAB*/
+    .ALpC8b, .ZHllM, 
+    .YkfxEe, 
+    .S630me, .owVllc{
+        background-color: var(--hue1) !important;
+        color: white !important;
+    }
+    .a-da-U *, .ZPnS1 *, .jGNTYb *, .yHnyPe.Tguc8d{
+    color: white !important;
+    }
+    /*folder highlight color*/
+    .a-U-ye-ha > .a-U-J{ 
+        background-color: rgb(22, 22, 22) !important;
+    }
+    .S630me{
+        border-radius: 0px;
+    }
+
+/*MAIN BODY*/
+    .g3Fmkb, 
+    .jLwBBf, 
+    .PolqHc, 
+    .Lxdbvc, 
+    .N7iPof,
+     .iBEKub{
+        background-color: #313131 !important;
+    }
+    .jGNTYb *, .yHnyPe.Tguc8d, .h-sb-Ic, .WpZLE, .a-s-fa-Ha-pa.c-qd, .uXB7xe, .QsFsvc, .aViged, .TvarF, .PZFh5b, .gb_ld *{
+        color: rgb(247, 247, 224);
+    }
+    .gb_xe *{
+        color: black;
+    }
+    /*folder path color (appears at bottom)*/
+    .c-qd, .o-Yc-o-T, .Q6yead,.WYuW0e, .l-o-c-qd, .YUNZ4c, .N7iPof *, .GPeSMb, .cuTmdc, .PO9J1e, .mUIrbf-vQzf8d, #dnCage, .AdEoae, .ZqJeHd.a-c-d, .nrMpUc, .gb_td.gb_ad, .ZkrXVe{
+        color: rgb(203, 203, 203) !important;
+    }
+
+    /*some buttons at the top*/
+    .glX3de, .brbsPe{
+        background-color: var(--hue2) !important;
+        color: white;
+        border: 3px solid var(--hue3);
+    }
+    
+    /*folders (grid layout view)*/
+    .jGNTYb, .a-s-Ba-Ed-Be-nAm6yf, .YMooxe, .ZPnS1{ 
+        background-color: #212121 !important;
+        border: none !important;
+        border-radius: 0 !important;
+    }
+    .l-u-Ab-zb, .pYTkkf-c-kBDsod-Rtc0Jf{
+        background-color: rgb(38, 38, 38) !important;
+    }
+    .Lxdbvc{
+        padding-left: 10px;
+        margin-left: 0;
+    }
+
+    /*folders (list view)*/
+    .WYuW0e{
+        border-bottom-color: #0000002d !important;
+    }
+    
+    .aabwZd:not(.KBj6Qd) .GZwC2b, .f8nwhd-qb23S-b9nz9e-Qu-wk{
+        background-color: #4b5a64 !important;
+    }
+
