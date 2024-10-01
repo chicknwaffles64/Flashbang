@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hue Changer</title>
+    <link rel="stylesheet" href="hue.css">
+</head>
+<body>
+    <h1>EDIT COLOR SCHEMES</h1>
+    
+    <div class="colorBlockDiv">
+        <h2>Google Drive</h2>
+        <div class="colorBlockDivInner">
+            <colorBlock class="drive" id="CB1-drive"></colorBlock>
+            <colorBlock class="drive" id="CB2-drive"></colorBlock>
+            <colorBlock class="drive" id="CB3-drive"></colorBlock>
+        </div><input type="range" class="hueSlider" id="sliderDrive" min="0" max="360" value="0">
+    </div>
+
+    <div class="colorBlockDiv">
+        <h2>D2L Brightspace</h2>
+        <div class="colorBlockDivInner">
+            <colorBlock class="D2L" id="CB1-D2L"></colorBlock>
+            <colorBlock class="D2L" id="CB2-D2L"></colorBlock>
+            <colorBlock class="D2L" id="CB3-D2L"></colorBlock>
+        </div><input type="range" class="hueSlider" id="sliderD2L" min="0" max="360" value="0">
+    </div>
+
+    <div id="buttonDiv">
+        <button class="butt" id="save">SAVE</button>
+        <button class="butt" id="reset">RESET</button>
+    </div>
+    <p id="message"></p>
+
+    <script src="hue.js"></script>
+</body>
+</html>

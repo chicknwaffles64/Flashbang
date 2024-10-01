@@ -1,0 +1,61 @@
+:root{
+    --main-color: "hsl(0, 0%, 94%)";
+    --color1-drive: hsl(171, 51%, 14%);
+    --color2-drive: hsl(171, 40%, 17%);
+    --color3-drive: hsl(152, 22%, 35%);
+
+    --color1-D2L: hsl(204, 100%, 71%);
+    --color2-D2L: hsl(221, 85%, 82%);
+    --color3-D2L: hsl(264, 68%, 50%);
+}
+#CB1-drive{ background-color: var(--color1-drive);}
+#CB2-drive{ background-color: var(--color2-drive);}
+#CB3-drive{ background-color: var(--color3-drive);}
+
+#CB1-D2L{ background-color: var(--color1-D2L);}
+#CB2-D2L{ background-color: var(--color2-D2L);}
+#CB3-D2L{ background-color: var(--color3-D2L);}
+
+
+body {
+    background-color: "hsl(0, 0%, 94%)";
+    padding: 50px;
+    padding-top: 0;
+    font-family: monospace;
+    font-weight: 500;
+    color: white;
+    background-color: rgb(43, 43, 43);
+}
+.colorBlockDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.colorBlockDivInner{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+colorBlock{
+    display: block;
+    width: 100px;
+    height: 50px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.hueSlider {
+    left: 50%;
+    width: 400px;
+}
+
+#buttonDiv {
+    display: flex;
+    width: fit-content;
+}
+.butt {
+    margin: 5px;
+    padding: 5px;
+    font-family: monospace;
+    font-weight: 700;
+}

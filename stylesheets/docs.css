@@ -1,0 +1,68 @@
+/*GOOGLE DOCS HOMEPAGE*/
+    .docs-homescreen-grid-item-title, 
+    .docs-hs-tmp-contractedheader-text, 
+    .docs-homescreen-templates-templateview-title, 
+    .docs-homescreen-itemholder-content, 
+    .docs-homescreen-owner-filter-label-text{
+        color: white;
+    }
+    .docs-homescreen-templates-templateview-style, 
+    .docs-homescreen-grid-item-time-container, 
+    .docs-homescreen-grid-header-title {
+        color: #a6a6a6 !important;
+    }
+
+    .docs-homescreen-fcc-content, 
+    .docs-homescreen-owner-filter-button, 
+    .goog-menu-button-open{
+        background-color: #2e2b2b !important;
+    }
+    .docs-homescreen-floater-header, .docs-homescreen-container{
+        background-color: #272524;
+    }
+        .goog-menuitem-content, .goog-menu-button-hover{
+            color: #5f5b5b !important;
+        }
+        .goog-menuitem-content:hover{
+            color: #1b1b1b !important;
+        }
+    .docs-homescreen-grid-header{
+        background: none;
+    }
+    .goog-control-hover{
+        border-radius: 0 !important;
+    }
+        .docs-homescreen-grid-item{
+            border: 1px solid black;
+            background-color: #302f2f;
+        }
+
+/*GOOGLE DOCS EDITOR*/
+    .kix-appview-editor{
+        background-color: rgb(52, 52, 52) !important;
+    }
+    .navigation-widget-floating-navigation-button.navigation-widget{
+        background: rgb(30, 30, 30) !important;
+
+    }
+    .outlines-widget *{
+    color: #ffffff !important;
+    }
+    .navigation-item.location-indicator-highlight *{
+        color: #2bb1ff !important;
+    }
+    .navigation-item.goog-button-hover *{
+        background-color: #fefefe27 !important;
+    }
+
+
+    .navigation-widget-row-controls-control, 
+    .navigation-widget-hat-close-button-outer-box,
+    .docs-floating-navigation-button-outer-box {
+        background: #c4c4c4 !important;
+    }
+    .navigation-widget-row-controls-control:hover, 
+    .navigation-widget-hat-close-button-outer-box:hover,
+    .docs-floating-navigation-button-outer-box:hover {
+        background: #999999 !important;
+    }
