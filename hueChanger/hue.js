@@ -57,8 +57,8 @@ function rgbToHsl(rgbString) {
 
 const OG = {
     drive: {
-        H : [171, 171, 152],
-        LS: ["51%, 14%", "40%, 17%", "22%, 35%"]
+        H : [211, 207, 229],
+        LS: ["52%, 14%", "40%, 17%", "22%, 35%"]
     },
     docs: {
         H : [257, 240, 192],
@@ -72,8 +72,8 @@ const OG = {
 
 let colors = {
     drive: {
-        H : [171, 171, 152],
-        LS: ["51%, 14%", "40%, 17%", "22%, 35%"]
+        H : [211, 207, 229],
+        LS: ["52%, 14%", "40%, 17%", "22%, 35%"]
     },
     docs: {
         H : [257, 240, 192],
@@ -164,7 +164,29 @@ slider.addEventListener('input', () => {
 
 buttonDiv.addEventListener('click', (e) => {
     if (e.target.id == 'save') {
+        // SAVE COLORS TO LOCAL STORAGE //
+    let colorsExport = []
+    let j = 0; let colorsArray = [];
+    
+    Object.keys(colors).forEach(website => {
+        document.querySelectorAll(`.${website}`).forEach(box => {
+            colorsArray.push(window.getComputedStyle(box).getPropertyValue("background-color"))
+            j++
+        });
+        colorsExport.push(colorsArray); 
+        j = 0; colorsArray = []
+    })
+    /*for transparent color*/
+     if (colorsExport[1][2].length > 1) {
+         colorsExport[1][2] = colorsExport[1][2].replace("%", "").replace(")", ", 0.2)")
+     }
 
+    browser.storage.local.set({ savedColors: colorsExport }).then(() => {
+        document.getElementById('message').textContent = "Color schemes saved!\r\nReload your webpages to see the changes.";
+        setTimeout(() => {
+            document.getElementById('message').textContent = "";
+        }, 2500);
+    })
     } 
     else if (e.target.id == 'reset') {
         let k = 0;
@@ -192,28 +214,4 @@ buttonDiv.addEventListener('click', (e) => {
     })
     }
     else { return }
-
-    // SAVE COLORS TO LOCAL STORAGE //
-    let colorsExport = []
-    let j = 0; let colorsArray = [];
-    
-    Object.keys(colors).forEach(website => {
-        document.querySelectorAll(`.${website}`).forEach(box => {
-            colorsArray.push(window.getComputedStyle(box).getPropertyValue("background-color"))
-            j++
-        });
-        colorsExport.push(colorsArray); 
-        j = 0; colorsArray = []
-    })
-    /*for transparent color*/
-     if (colorsExport[1][2].length > 1) {
-         colorsExport[1][2] = colorsExport[1][2].replace("%", "").replace(")", ", 0.2)")
-     }
-
-    browser.storage.local.set({ savedColors: colorsExport }).then(() => {
-        document.getElementById('message').textContent = "Color schemes saved!\r\nReload your webpages to see the changes.";
-        setTimeout(() => {
-            document.getElementById('message').textContent = "";
-        }, 2500);
-    })
 });

@@ -1,7 +1,7 @@
 :root{
-    --color1-drive: hsl(170, 52%, 14%);
-    --color2-drive: hsl(171, 40%, 17%);
-    --color3-drive: hsl(152, 22%, 35%);
+    --color1-drive: hsl(211, 52%, 14%);
+    --color2-drive: hsl(207, 40%, 17%);
+    --color3-drive: hsl(229, 22%, 35%);
 
     --color1-docs: hsl(257, 98%, 77%);
     --color2-docs: hsl(240, 100%, 82%);
