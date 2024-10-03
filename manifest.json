@@ -16,17 +16,21 @@
     "content_scripts": [
       {
         "matches": ["https://docs.google.com/*"],
-        "css": ["stylesheets/docs.css"]
+        "css": ["stylesheets/docs.css"],
+        "js":["content_scripts/docs.js"],
+        "run_at": "document_start"
       },
       {
         "matches": ["https://drive.google.com/*"],
         "css": ["stylesheets/drive.css"],
-        "js":["content_scripts/drive.js"]
+        "js":["content_scripts/drive.js"],
+        "run_at": "document_start"
       },
       {
         "matches": ["https://mycourses2.mcgill.ca/d2l/*", "https://learn.georgebrown.ca/d2l/*", "https://avenue.mcmaster.ca/d2l/*", "https://learn.uwaterloo.ca/d2l/*", "https://courses.torontomu.ca/d2l/*"],
         "css": ["stylesheets/d2l.css"],
-        "js":["content_scripts/d2l.js"]
+        "js":["content_scripts/d2l.js"],
+        "run_at": "document_start"
         
       }
     ],

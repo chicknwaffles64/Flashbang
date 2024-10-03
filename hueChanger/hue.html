@@ -9,29 +9,43 @@
 <body>
     <h1>EDIT COLOR SCHEMES</h1>
     
-    <div class="colorBlockDiv">
+
+
+    <div id="colorOuter" class="outer">
         <h2>Google Drive</h2>
-        <div class="colorBlockDivInner">
-            <colorBlock class="drive" id="CB1-drive"></colorBlock>
+        <div class="colorInner">
+            <colorBlock class="drive selected" id="CB1-drive"></colorBlock>
             <colorBlock class="drive" id="CB2-drive"></colorBlock>
             <colorBlock class="drive" id="CB3-drive"></colorBlock>
-        </div><input type="range" class="hueSlider" id="sliderDrive" min="0" max="360" value="0">
-    </div>
-
-    <div class="colorBlockDiv">
+        </div>
+        <h2>Google Docs</h2>
+        <div class="colorInner">
+            <colorBlock class="docs" id="CB1-docs"></colorBlock>
+            <colorBlock class="docs" id="CB2-docs"></colorBlock>
+            <colorBlock class="docs" id="CB3-docs"></colorBlock>
+        </div>
         <h2>D2L Brightspace</h2>
-        <div class="colorBlockDivInner">
+        <div class="colorInner">
             <colorBlock class="D2L" id="CB1-D2L"></colorBlock>
             <colorBlock class="D2L" id="CB2-D2L"></colorBlock>
             <colorBlock class="D2L" id="CB3-D2L"></colorBlock>
-        </div><input type="range" class="hueSlider" id="sliderD2L" min="0" max="360" value="0">
+        </div>
     </div>
-
-    <div id="buttonDiv">
-        <button class="butt" id="save">SAVE</button>
-        <button class="butt" id="reset">RESET</button>
+    <br>
+    <br>
+    <div class="outer">
+        <input type="range" class="hueSlider" id="slider" min="0" max="360" value="0"> 
+        <br>
+          
+        <div id="buttonDiv">
+            <p id="message" style="width: 330px; white-space: pre-line; font-size: 13px;"></p>
+            <button class="butt" id="save">SAVE</button>
+            <button class="butt" id="reset">RESET</button>
+        </div>
+        <br>
+        <br>
+        <br>
     </div>
-    <p id="message"></p>
 
     <script src="hue.js"></script>
 </body>

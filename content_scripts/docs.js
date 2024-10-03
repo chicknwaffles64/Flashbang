@@ -3,9 +3,9 @@ function saveColors(colors) {
     
     style.textContent = `
     :root { 
-        --hue1: ${colors[2][0]} !important;
-        --hue2: ${colors[2][1]} !important; 
-        --hue3: ${colors[2][2]} !important; 
+        --hue1: ${colors[1][0]} !important;
+        --hue2: ${colors[1][1]} !important; 
+        --hue3: ${colors[1][2]} !important; 
         }
     `;
     document.head.appendChild(style);

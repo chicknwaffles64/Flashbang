@@ -1,7 +1,7 @@
 :root{
     --hue1: hsl(204, 100%, 71%); 
-    --hue2: hsl(221, 85%, 82%);
-    --hue3: hsl(264, 68%, 50%);
+    --hue2: hsl(264, 68%, 50%);
+    --hue3: hsl(260, 34%, 15%);
 }
 
 *{
@@ -30,13 +30,13 @@ background: rgb(38, 38, 38) !important;
     border: 2px solid rgb(131, 131, 131) !important;
 }
 d2l-menu-item-link:hover{
-    color: var(--hue2) !important;
+    color: var(--hue1) !important;
 }
 .d2l-list-item-action-hover *{
-    background-color: rgb(35, 26, 53) !important;
+    background-color: var(--hue3) !important;
 }
 .vui-selected, .vui-selected + li{
-    border-top: 4px solid var(--hue3) !important;
+    border-top: 4px solid var(--hue2) !important;
 }
 #d2l_1_17_334 *{
     color: black !important;

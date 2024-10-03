@@ -1,49 +1,165 @@
+function rgbToHsl(rgbString) {
+    // Normalize the RGB values to the range [0, 1]
+    rgbString = rgbString.replace('rgb(', '').replace(')', '').split(', ')
+    r = Number(rgbString[0])
+    g = Number(rgbString[1])
+    b = Number(rgbString[2])
+    r /= 255;
+    g /= 255;
+    b /= 255;
+
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const delta = max - min;
+
+    // Calculate Lightness
+    let h, s, l = (max + min) / 2;
+
+    // Calculate Saturation
+    if (delta === 0) {
+        h = s = 0; // achromatic
+    } else {
+        s = l < 0.5 ? delta / (max + min) : delta / (2 - max - min);
+
+        // Calculate Hue
+        switch (max) {
+            case r:
+                h = ((g - b) / delta + (g < b ? 6 : 0)) * 60;
+                break;
+            case g:
+                h = ((b - r) / delta + 2) * 60;
+                break;
+            case b:
+                h = ((r - g) / delta + 4) * 60;
+                break;
+        }
+    }
+
+    // Convert values to the correct format
+    h = Math.round(h);
+    s = Math.round(s * 100);
+    l = Math.round(l * 100);
+
+    let result = {
+        H: h,
+        LS: `${s}%, ${l}%`,
+        string: `hsl(${h}, ${s}%, ${l}%)`
+    }
+    if (rgbString[3]) {
+        result = {
+            H: h,
+            LS: `${s}%, ${l}%, ${rgbString[3]}`,
+            string: `hsl(${h}, ${s}%, ${l}%)`
+        }
+    }
+    return result;
+}
+
+const OG = {
+    drive: {
+        H : [171, 171, 152],
+        LS: ["51%, 14%", "40%, 17%", "22%, 35%"]
+    },
+    docs: {
+        H : [257, 240, 192],
+        LS: ["98%, 77%", "100%, 82%", "100%, 50%"]
+    },
+    D2L: {
+        H : [204, 264, 260],
+        LS : ["100%, 71%", "68%, 50%", "34%, 15%"]
+    }
+}
+
+let colors = {
+    drive: {
+        H : [171, 171, 152],
+        LS: ["51%, 14%", "40%, 17%", "22%, 35%"]
+    },
+    docs: {
+        H : [257, 240, 192],
+        LS: ["98%, 77%", "100%, 82%", "100%, 50%"]
+    },
+    D2L: {
+        H : [204, 264, 260],
+        LS : ["100%, 71%", "68%, 50%", "34%, 15%"]
+    }
+}
+
 // Load the saved colors from storage
 document.addEventListener('DOMContentLoaded', async () => {
-    const { savedColorsDrive } = await browser.storage.local.get("savedColorsDrive");
-    if (savedColorsDrive && savedColorsDrive.length > 0) {
-      colors = savedColorsDrive;
-    }
-    const { savedColorsD2L } = await browser.storage.local.get("savedColorsD2L");
-    if (savedColorsD2L && savedColorsD2L.length > 0) {
-      colors = savedColorsD2L;
+    const { savedColors } = await browser.storage.local.get("savedColors");
+    if (savedColors && savedColors.length > 1) {
+        let k = 0;
+        Object.keys(colors).forEach(website => {
+            document.querySelectorAll(`.${website}`).forEach(box => {
+                let hsl = {}
+                switch(website) {
+                    case 'drive':
+                        hsl = rgbToHsl(savedColors[0][k])
+                        colors.drive.H[k] = hsl.H
+                        colors.drive.LS[k] = hsl.LS
+                        break;
+                    case 'docs':
+                        hsl = rgbToHsl(savedColors[1][k])
+                        colors.docs.H[k] = hsl.H
+                        colors.docs.LS[k] = hsl.LS
+                        break;
+                    case 'D2L':
+                        hsl = rgbToHsl(savedColors[2][k])
+                        colors.D2L.H[k] = hsl.H
+                        colors.D2L.LS[k] = hsl.LS
+                        break;
+                    }
+                box.style.backgroundColor = hsl.string
+                document.documentElement.style.setProperty(`--color${k+1}-${website}`, hsl.string)
+                slider.value = 0
+                k++
+            });
+            k = 0
+        });
     }
   });
 
 const buttonDiv = document.getElementById('buttonDiv')
+const slider = document.getElementById('slider')
+let selectedBox = document.querySelector('.selected')
+let selectedBoxNum = 0
+let oldSliderValue = 0;
 
+let H = colors.drive.H[0]
+let LS = colors.drive.LS[0]
 
-const colorBoxesDrive = document.querySelectorAll('.drive')
-const sliderDrive = document.getElementById('sliderDrive')
-let oldSliderValueDrive = 0;
-const huesDrive = [171, 171, 152]
-const lightnessSatDrive = ["51%, 14%", "40%, 17%", "22%, 35%"]
+document.getElementById('colorOuter').addEventListener('click', (e) => {
+    if (!e.target.classList.contains('selected')) {
+        document.querySelectorAll('COLORBLOCK').forEach (div => {
+            div.classList.remove('selected')
+        })
+        e.target.classList.add('selected')
+        selectedBox = document.querySelector('.selected')
+        selectedBoxNum = Number(e.target.id.slice(2,3)) - 1
 
-
-const colorBoxesD2L = document.querySelectorAll('.D2L')
-const sliderD2L = document.getElementById('sliderD2L')
-let oldSliderValueD2L = 0;
-const huesD2L = [204, 221, 264]
-const lightnessSatD2L = ["100%, 71%", "85%, 82%", "68%, 50%"]
-
-
-async function setColor(slider, oldSliderValue, hues, lightnessSat, colorBoxes) {
-    const hue = slider.value;
-    console.log(hue)
-    let i = 0;
-    colorBoxes.forEach(box => {
-        let changeInSliderValue = hue - oldSliderValue   //records the change in slider value
-        let newHue = (changeInSliderValue + hues[i])%360 //deals with hue values > 360 and values < 0
-        box.style.backgroundColor = `hsl(${newHue}, ${lightnessSat[i]})`
-        i++
-    });
-}
-
-sliderDrive.addEventListener('input', () => {
-    setColor(sliderDrive, oldSliderValueDrive, huesDrive, lightnessSatDrive, colorBoxesDrive)
+        switch (e.target.id.slice(4,)) {
+            case 'drive':
+                H = colors.drive.H[selectedBoxNum]
+                LS = colors.drive.LS[selectedBoxNum]
+                break;
+            case 'docs':
+                H = colors.docs.H[selectedBoxNum]
+                LS = colors.docs.LS[selectedBoxNum]
+                break;
+            case 'D2L':
+                H = colors.D2L.H[selectedBoxNum]
+                LS = colors.D2L.LS[selectedBoxNum]
+                break;
+        }
+    }
 });
-sliderD2L.addEventListener('input', () => {
-    setColor(sliderD2L, oldSliderValueD2L, huesD2L, lightnessSatD2L, colorBoxesD2L)
+
+slider.addEventListener('input', () => {
+    const hue = slider.value;
+    const changeInSliderValue = hue - oldSliderValue   //records the change in slider value
+    const newHue = (changeInSliderValue + H)%360 //deals with hue values > 360 and values < 0
+    selectedBox.style.backgroundColor = `hsl(${newHue}, ${LS})`
 });
 
 buttonDiv.addEventListener('click', (e) => {
@@ -52,45 +168,52 @@ buttonDiv.addEventListener('click', (e) => {
     } 
     else if (e.target.id == 'reset') {
         let k = 0;
-        colorBoxesDrive.forEach(box => {
-            let oldHue = `hsl(${huesDrive[k]}, ${lightnessSatDrive[k]})`
-            box.style.backgroundColor = oldHue
-            document.documentElement.style.setProperty(`--color${k+1}-drive`, oldHue)
-            sliderDrive.value = 0
-            k++
-        });
 
-        k = 0;
-        colorBoxesD2L.forEach(box => {
-            let oldHue = `hsl(${huesD2L[k]}, ${lightnessSatD2L[k]})`
+        Object.keys(colors).forEach(website => {
+        document.querySelectorAll(`.${website}`).forEach(box => {
+            let oldHue = ""
+            switch(website) {
+                case 'drive':
+                    oldHue = `hsl(${OG.drive.H[k]}, ${OG.drive.LS[k]})`
+                    break;
+                case 'docs':
+                    oldHue = `hsl(${OG.docs.H[k]}, ${OG.docs.LS[k]})`
+                    break;
+                case 'D2L':
+                    oldHue = `hsl(${OG.D2L.H[k]}, ${OG.D2L.LS[k]})`
+                    break;
+                }
             box.style.backgroundColor = oldHue
-            document.documentElement.style.setProperty(`--color${k+1}-D2L`, oldHue)
-            sliderD2L.value = 0
+            document.documentElement.style.setProperty(`--color${k+1}-${website}`, oldHue)
+            slider.value = 0
             k++
-            
         });
+        k = 0;
+    })
     }
     else { return }
 
     // SAVE COLORS TO LOCAL STORAGE //
-    //DRIVE
+    let colorsExport = []
     let j = 0; let colorsArray = [];
-    colorBoxesDrive.forEach(box => {
-        colorsArray.push(box.style.backgroundColor)
-        j++
-    });
-    browser.storage.local.set({ savedColorsDrive: colorsArray }).then(() => {
-        document.getElementById('message').textContent = "Color saved for Google Drive! ";
-    })
-
-    //D2L
-    j = 0; colorsArray = [];
-    colorBoxesD2L.forEach(box => {
-        colorsArray.push(box.style.backgroundColor)
-        j++
-    });
-    browser.storage.local.set({ savedColorsD2L: colorsArray }).then(() => {
-        document.getElementById('message').textContent = "Color saved for Google Drive and D2L! ";
-    })
     
+    Object.keys(colors).forEach(website => {
+        document.querySelectorAll(`.${website}`).forEach(box => {
+            colorsArray.push(window.getComputedStyle(box).getPropertyValue("background-color"))
+            j++
+        });
+        colorsExport.push(colorsArray); 
+        j = 0; colorsArray = []
+    })
+    /*for transparent color*/
+     if (colorsExport[1][2].length > 1) {
+         colorsExport[1][2] = colorsExport[1][2].replace("%", "").replace(")", ", 0.2)")
+     }
+
+    browser.storage.local.set({ savedColors: colorsExport }).then(() => {
+        document.getElementById('message').textContent = "Color schemes saved!\r\nReload your webpages to see the changes.";
+        setTimeout(() => {
+            document.getElementById('message').textContent = "";
+        }, 2500);
+    })
 });

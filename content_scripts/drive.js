@@ -1,10 +1,11 @@
 function saveColors(colors) {
     const style = document.createElement('style');
+    
     style.textContent = `
     :root { 
-        --hue1: ${colors[0]} !important;
-        --hue2: ${colors[1]} !important; 
-        --hue3: ${colors[2]} !important; 
+        --hue1: ${colors[0][0]} !important;
+        --hue2: ${colors[0][1]} !important; 
+        --hue3: ${colors[0][2]} !important; 
         }
     `;
     document.head.appendChild(style);
@@ -12,9 +13,9 @@ function saveColors(colors) {
 
 // Load the saved colors from storage
 async function loadColors() {
-    const { savedColorsDrive } = await browser.storage.local.get("savedColorsDrive");
-    if (savedColorsDrive && savedColorsDrive.length > 0) {
-        saveColors(savedColorsDrive);
+    const { savedColors } = await browser.storage.local.get("savedColors");
+    if (savedColors && savedColors.length > 0) {
+        saveColors(savedColors);
     }
 }
 

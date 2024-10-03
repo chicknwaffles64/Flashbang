@@ -1,7 +1,7 @@
 :root{
-    --hue1: hsl(202, 100%, 58%);
-    --hue2: hsla(192, 100%, 50%, 0.2);
-    --hue3: hsl(258, 100%, 87%);
+    --hue1: hsl(257, 98%, 77%);
+    --hue2: hsl(240, 100%, 82%);
+    --hue3: hsla(192, 100%, 50%, 0.2);
 }
 
 /*GOOGLE DOCS HOMEPAGE*/
@@ -46,7 +46,7 @@
 /*TOP TOOLBAR SECTION*/
 #docs-chrome,
 .docs-titlebar-buttons{
-    background: #1e1e1e !important;
+    background: #232323 !important;
 }
 .menu-button{
     color: white !important;
@@ -65,7 +65,7 @@
 .kix-titlebar-mode-switcher,
 #scb-quick-actions-menu
 {
-    background-color: var(--hue3) !important;
+    background-color: var(--hue2) !important;
 }
 
 .docs-titlebar-badge, 
@@ -83,19 +83,24 @@
     #docs-title-widget,
     .docs-titlebar-badges > * {
         margin-right: 5px;
+        height: 28px !important;
     }
     .docs-title-input, .docs-title-input:focus{
         border: none !important;
-        color: black !important;
+        color: rgb(255, 255, 255) !important;
         height: 25px !important;
     }
-    #docs-parent-collections-container-outer,
-    #docs-title-widget{
-        height: 28px !important;
-    }
-    .docs-title-input, #docs-parent-collections-container-outer {
-        background-color: #dfdfdf !important;
+    .docs-title-input {
+        background-color: #212020 !important;
         color: transparent !important;
+    }
+    .docs-title-input-label {
+        color: white !important;
+        border-bottom: #999999 solid 1px !important;
+    }
+    #docs-parent-collections-container-outer{
+        background-color: #d8d8d8 !important;
+        height: 28px !important;
     }
 
     #docs-menubar{
@@ -126,10 +131,10 @@
 
 /*GOOGLE DOCS EDITOR*/
     .kix-appview-editor{
-        background-color: rgb(52, 52, 52) !important;
+        background-color: rgb(40, 40, 40) !important;
     }
     .navigation-widget-floating-navigation-button.navigation-widget{
-        background: #1e1e1e !important;
+        background: #212020 !important;
 
     }
     .outlines-widget *{
@@ -141,7 +146,7 @@
     .navigation-item.goog-button-hover *,
     .goog-toolbar-button-hover, 
     .goog-toolbar-menu-button-hover{
-        background-color: var(--hue2) !important;
+        background-color: var(--hue3) !important;
     }
 
 
@@ -155,3 +160,7 @@
     .docs-floating-navigation-button-outer-box:hover {
         background: #999999 !important;
     }
+/*.kix-page-paginated{
+        filter: brightness(0.9);
+        will-change: filter;
+    }*/

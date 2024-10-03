@@ -1,61 +1,88 @@
 :root{
-    --main-color: "hsl(0, 0%, 94%)";
-    --color1-drive: hsl(171, 51%, 14%);
+    --color1-drive: hsl(170, 52%, 14%);
     --color2-drive: hsl(171, 40%, 17%);
     --color3-drive: hsl(152, 22%, 35%);
 
+    --color1-docs: hsl(257, 98%, 77%);
+    --color2-docs: hsl(240, 100%, 82%);
+    --color3-docs: hsla(192, 100%, 50%);
+
     --color1-D2L: hsl(204, 100%, 71%);
-    --color2-D2L: hsl(221, 85%, 82%);
-    --color3-D2L: hsl(264, 68%, 50%);
+    --color2-D2L: hsl(264, 68%, 50%);
+    --color3-D2L: hsl(260, 34%, 15%);
 }
 #CB1-drive{ background-color: var(--color1-drive);}
 #CB2-drive{ background-color: var(--color2-drive);}
 #CB3-drive{ background-color: var(--color3-drive);}
 
+#CB1-docs{ background-color: var(--color1-docs);}
+#CB2-docs{ background-color: var(--color2-docs);}
+#CB3-docs{ background-color: var(--color3-docs);}
+
 #CB1-D2L{ background-color: var(--color1-D2L);}
 #CB2-D2L{ background-color: var(--color2-D2L);}
 #CB3-D2L{ background-color: var(--color3-D2L);}
 
-
 body {
-    background-color: "hsl(0, 0%, 94%)";
     padding: 50px;
     padding-top: 0;
+    width: fit-content;
+    
     font-family: monospace;
-    font-weight: 500;
+    font-weight: 400;
     color: white;
     background-color: rgb(43, 43, 43);
+
 }
-.colorBlockDiv {
+/*Pointer events: none*/
+#colorOuter, .colorInner {
+    pointer-events: none;
+}
+/*Color blocks*/
+.outer {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.colorBlockDivInner{
+.colorInner{
     display: flex;
     flex-direction: row;
-    margin: 0;
+    width: fit-content;
+    height: 60px;
+    margin-bottom: 20px;
+}
+.selected {
+    content: "▲";
+    border-bottom: solid 5px #ffffff;
+}
+.selected::after {
+    position: relative;
+    content: "▲";
+    font-size: 20px;
+    top: 110%; left: 42%;
 }
 colorBlock{
+    pointer-events: all;
     display: block;
     width: 100px;
     height: 50px;
     border: 1px solid rgb(255, 255, 255);
 }
 
+/*input elements*/
 .hueSlider {
     left: 50%;
     width: 400px;
 }
-
 #buttonDiv {
     display: flex;
     width: fit-content;
+    align-self: end;
 }
 .butt {
     margin: 5px;
     padding: 5px;
     font-family: monospace;
     font-weight: 700;
+    height: 30px;
 }
