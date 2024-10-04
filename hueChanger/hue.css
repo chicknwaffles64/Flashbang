@@ -24,9 +24,9 @@
 #CB3-D2L{ background-color: var(--color3-D2L);}
 
 body {
-    padding: 25px;
+    padding: 15px;
     padding-top: 0;
-    width: fit-content;
+    width: 100%;
     
     font-family: monospace;
     font-weight: 400;
@@ -72,7 +72,8 @@ colorBlock{
 
 /*input elements*/
 .hueSlider {
-    left: 50%;
+    display: block;
+    margin: auto;
     width: 350px;
 }
 

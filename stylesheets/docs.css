@@ -1,6 +1,6 @@
 :root{
     --hue1: hsl(257, 98%, 77%);
-    --hue2: hsl(240, 100%, 82%);
+    --hue2: hsl(240, 50%, 75%);
     --hue3: hsla(192, 100%, 50%, 0.2);
 }
 
@@ -37,6 +37,9 @@
     }
     .goog-control-hover{
         border-radius: 0 !important;
+    }
+    .goog-control-open{
+        background-color: rgb(110, 110, 110) !important;
     }
         .docs-homescreen-grid-item{
             border: 1px solid black;
@@ -164,3 +167,20 @@
         filter: brightness(0.9);
         will-change: filter;
     }*/
+
+/*GOOGLE SLIDES*/
+
+#filmstrip,
+.punch-filmstrip-scroll {
+    background-color: #1b1b1b !important;
+}
+#workspace-container {
+    background-color: rgb(40, 40, 40) !important;
+}
+.punch-filmstrip-thumbnail-pagenumber {
+    fill: #b0afaf !important;
+}
+#speakernotes-workspace-container,
+#speakernotes-workspace{
+    background-color: #d6d6d6 !important;
+}

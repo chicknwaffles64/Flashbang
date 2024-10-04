@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="hue.css">
 </head>
 <body>
-    <h2>Edit color schemes</h2>
-    <div style="line-height: 2em;"><b style="font-size: 1.1em;">Select a box and adjust its hue by moving the slider at the bottom.</b><br>
-        &emsp; <span style="border: 1px solid white; padding: 1px;">SAVE</span><i> will overwrite the old color palette with the existing one.</i><br>
-        &emsp; <span style="border: 1px solid white; padding: 1px;">RESET</span><i> will temporarly reset all palletes to their default colors (current pallete will not be overwritten).</i><br>
+    <h2>▷ Edit color schemes</h2>
+    <div style="line-height: 2em;"><b style="font-size: 1.17em;">Select a box & adjust its hue by moving the slider at the bottom.</b><br>
+        &emsp; <span style="border: 1px solid white; padding: 2px; font-size: 0.95em;">SAVE</span><i> will overwrite the old color palette with the existing one.</i><br>
+        &emsp; <span style="border: 1px solid white; padding: 2px; font-size: 0.95em;">RESET</span><i> will temporarly reset all palletes to their default colors (current pallete will not be overwritten).</i><br>
     </div>
     
     <div id="colorOuter" class="outer">
@@ -20,7 +20,7 @@
             <colorBlock class="drive" id="CB2-drive"></colorBlock>
             <colorBlock class="drive" id="CB3-drive"></colorBlock>
         </div>
-        <h3>Google Docs</h3>
+        <h3>Google Docs Editors Suite</h3>
         <div class="colorInner">
             <colorBlock class="docs" id="CB1-docs"></colorBlock>
             <colorBlock class="docs" id="CB2-docs"></colorBlock>
@@ -37,7 +37,8 @@
     <br>
     <div class="outer">
         <div>
-            <input type="range" class="hueSlider" id="slider" min="0" max="360" value="180"> 
+            <input type="range" class="hueSlider" id="slider" min="0" max="360" value="180">
+            <img class="hueSlider" style="margin-top:8px; opacity: 0.6;" src="hue.jpg">
         </div>
         <br>
           
@@ -46,10 +47,8 @@
             <button class="butt" id="save">SAVE</button>
             <button class="butt" id="reset">RESET</button>
         </div>
-        <br>
-        <br>
-        <br>
     </div>
+    <div style="height: 20px;"></div>
 
     <script src="hue.js"></script>
 </body>

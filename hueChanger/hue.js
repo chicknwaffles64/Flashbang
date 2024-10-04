@@ -1,12 +1,9 @@
 function rgbToHsl(rgbString) {
     // Normalize the RGB values to the range [0, 1]
     rgbString = rgbString.replace('rgb(', '').replace(')', '').split(', ')
-    r = Number(rgbString[0])
-    g = Number(rgbString[1])
-    b = Number(rgbString[2])
-    r /= 255;
-    g /= 255;
-    b /= 255;
+    r = Number(rgbString[0]) / 255 
+    g = Number(rgbString[1]) / 255
+    b = Number(rgbString[2]) / 255
 
     const max = Math.max(r, g, b);
     const min = Math.min(r, g, b);
@@ -40,44 +37,35 @@ function rgbToHsl(rgbString) {
     s = Math.round(s * 100);
     l = Math.round(l * 100);
 
-    let result = {
+    return {
         H: h,
         LS: `${s}%, ${l}%`,
         string: `hsl(${h}, ${s}%, ${l}%)`
-    }
-    if (rgbString[3]) {
-        result = {
-            H: h,
-            LS: `${s}%, ${l}%`,
-            string: `hsl(${h}, ${s}%, ${l}%)`
-        }
-    }
-    return result;
+    };
 }
 
 const OG = {
     drive: {
         H : [211, 207, 229],
-        LS: ["52%, 14%", "40%, 17%", "22%, 35%"]
+        LS: ["19%, 12%", "32%, 14%", "17%, 40%"]
     },
     docs: {
         H : [257, 240, 192],
-        LS: ["98%, 77%", "100%, 82%", "100%, 50%"]
+        LS: ["98%, 77%", "50%, 75%", "100%, 50%"]
     },
     D2L: {
         H : [204, 264, 260],
         LS : ["100%, 71%", "68%, 50%", "34%, 15%"]
     }
 }
-
 let colors = {
     drive: {
         H : [211, 207, 229],
-        LS: ["52%, 14%", "40%, 17%", "22%, 35%"]
+        LS: ["19%, 12%", "32%, 14%", "17%, 40%"]
     },
     docs: {
         H : [257, 240, 192],
-        LS: ["98%, 77%", "100%, 82%", "100%, 50%"]
+        LS: ["98%, 77%", "50%, 75%", "100%, 50%"]
     },
     D2L: {
         H : [204, 264, 260],
@@ -117,7 +105,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             k = 0
         });
     }
-    slider.value = 0
+    slider.value = colors.drive.H[0]
   });
 
 const buttonDiv = document.getElementById('buttonDiv')
@@ -153,14 +141,12 @@ document.getElementById('colorOuter').addEventListener('click', (e) => {
                 break;
         }
     }
-    slider.value = 0
+    slider.value = H
 });
 
 slider.addEventListener('input', () => {
-    const hue = slider.value;
-    const changeInSliderValue = hue - oldSliderValue   //records the change in slider value
-    const newHue = (changeInSliderValue + H)%360 //deals with hue values > 360 and values < 0
-    selectedBox.style.backgroundColor = `hsl(${newHue}, ${LS})`
+    
+    selectedBox.style.backgroundColor = `hsl(${slider.value}, ${LS})`
 });
 
 buttonDiv.addEventListener('click', (e) => {

@@ -1,25 +1,30 @@
 :root{
-    --hue1: hsl(211, 52%, 14%);
-    --hue2: hsl(207, 40%, 17%);
-    --hue3: hsl(229, 22%, 35%);
+    --hue1: hsl(215, 19%, 12%);
+    --hue2: hsl(209, 32%, 14%);
+    --hue3: hsl(228, 17%, 40%);
 }
 
 /*LEFT SIDE TAB*/
     .ALpC8b, .ZHllM, 
-    .YkfxEe, 
+    .YkfxEe, .gb_Wa,
     .S630me, .owVllc{
         background-color: var(--hue1) !important;
         color: white !important;
     }
-    .a-da-U *, .ZPnS1 *, .jGNTYb *, .yHnyPe.Tguc8d{
+    .a-da-U *, .ZPnS1 *, .jGNTYb *, .yHnyPe.Tguc8d,
+    .gb_E, .wo35tf, .gb_sd
+    {
     color: white !important;
     }
     /*folder highlight color*/
     .a-U-ye-ha > .a-U-J{ 
         background-color: rgb(22, 22, 22) !important;
     }
-    .S630me{
+    .S630me {
         border-radius: 0px;
+    }
+    .gb_Wa {
+        border: none !important;
     }
 
 /*MAIN BODY*/
@@ -28,6 +33,9 @@
     .PolqHc, 
     .Lxdbvc, 
     .N7iPof,
+    .u2MXhc,
+    .VUa0J,
+    .eZQkd,
      .iBEKub{
         background-color: #313131 !important;
     }
@@ -39,7 +47,7 @@
     }
     /*folder path color (appears at bottom)*/
     .c-qd, .o-Yc-o-T, .Q6yead,.WYuW0e, .l-o-c-qd, .YUNZ4c, .N7iPof *, .GPeSMb, .cuTmdc, .PO9J1e, .mUIrbf-vQzf8d, #dnCage, .AdEoae, .ZqJeHd.a-c-d, .nrMpUc, .gb_td.gb_ad, .ZkrXVe{
-        color: rgb(203, 203, 203) !important;
+        color: rgb(187, 186, 186) !important;
     }
 
     /*some buttons at the top*/
@@ -72,3 +80,29 @@
         background-color: #4b5a64 !important;
     }
 
+    /*workspace*/
+    .kRNxUc.V3vwXb{
+        background-color: var(--hue2) !important;
+        color: white !important; 
+        border: none !important;
+        border: 3px solid var(--hue3);
+    }
+    .AeBiU-vQzf8d{
+        color: white !important; 
+    }
+    .rTxrTb, .ab-S-V, .ab-S-Sg, .L17Que, .JDH2fe{
+        color: rgb(210, 210, 210) !important;
+    }
+    .O5x1db.ACGwFc, .dF0p9d.sV64Wc{
+        background-color: rgb(40, 40, 40) !important;
+    }
+    .XDBZ6 {
+        color: #212121 !important;
+    }
+    .OHeAue > .VfPpkd-dgl2Hf-ka-dd, .pc7nUb.XDBZ6.Dk9rmd {
+        background-color: var(--hue3) !important;
+    }
+    .VfPpkd-kBDsod > .Q6yead.QJZfhe{
+        background-color: rgb(255, 255, 255) !important;
+        color: rgb(40, 40, 40) !important;
+    }
