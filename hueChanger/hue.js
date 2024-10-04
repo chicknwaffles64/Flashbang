@@ -48,7 +48,7 @@ function rgbToHsl(rgbString) {
     if (rgbString[3]) {
         result = {
             H: h,
-            LS: `${s}%, ${l}%, ${rgbString[3]}`,
+            LS: `${s}%, ${l}%`,
             string: `hsl(${h}, ${s}%, ${l}%)`
         }
     }
@@ -112,12 +112,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                     }
                 box.style.backgroundColor = hsl.string
                 document.documentElement.style.setProperty(`--color${k+1}-${website}`, hsl.string)
-                slider.value = 0
                 k++
             });
             k = 0
         });
     }
+    slider.value = 0
   });
 
 const buttonDiv = document.getElementById('buttonDiv')
@@ -153,6 +153,7 @@ document.getElementById('colorOuter').addEventListener('click', (e) => {
                 break;
         }
     }
+    slider.value = 0
 });
 
 slider.addEventListener('input', () => {

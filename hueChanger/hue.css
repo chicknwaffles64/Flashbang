@@ -24,12 +24,13 @@
 #CB3-D2L{ background-color: var(--color3-D2L);}
 
 body {
-    padding: 50px;
+    padding: 25px;
     padding-top: 0;
     width: fit-content;
     
     font-family: monospace;
     font-weight: 400;
+    font-size: 13px;
     color: white;
     background-color: rgb(43, 43, 43);
 
@@ -72,17 +73,24 @@ colorBlock{
 /*input elements*/
 .hueSlider {
     left: 50%;
-    width: 400px;
+    width: 350px;
 }
+
 #buttonDiv {
+    translate: 0 15px;
     display: flex;
     width: fit-content;
     align-self: end;
 }
 .butt {
     margin: 5px;
-    padding: 5px;
+    padding: 7px;
     font-family: monospace;
     font-weight: 700;
     height: 30px;
+    color: white;
+    background-color: transparent;
+}
+.butt:hover{
+    background-color: rgba(227, 241, 255, 0.3);
 }
