@@ -13,10 +13,12 @@ function saveColors(colors) {
 
 // Load the saved colors from storage
 async function loadColors() {
-    const { savedColors } = await browser.storage.local.get("savedColors");
-    if (savedColors && savedColors.length > 0) {
-        saveColors(savedColors);
-    }
+    chrome.storage.local.get(['savedColors'], function(result) {
+        const savedColors = result.savedColors || [];
+        if (savedColors && savedColors.length > 0) {
+            saveColors(savedColors);
+        }
+    });
 }
 
 // Load the saved colors when the content script runs

@@ -75,36 +75,39 @@ let colors = {
 
 // Load the saved colors from storage
 document.addEventListener('DOMContentLoaded', async () => {
-    const { savedColors } = await browser.storage.local.get("savedColors");
-    if (savedColors && savedColors.length > 1) {
-        let k = 0;
-        Object.keys(colors).forEach(website => {
-            document.querySelectorAll(`.${website}`).forEach(box => {
-                let hsl = {}
-                switch(website) {
-                    case 'drive':
-                        hsl = rgbToHsl(savedColors[0][k])
-                        colors.drive.H[k] = hsl.H
-                        colors.drive.LS[k] = hsl.LS
-                        break;
-                    case 'docs':
-                        hsl = rgbToHsl(savedColors[1][k])
-                        colors.docs.H[k] = hsl.H
-                        colors.docs.LS[k] = hsl.LS
-                        break;
-                    case 'D2L':
-                        hsl = rgbToHsl(savedColors[2][k])
-                        colors.D2L.H[k] = hsl.H
-                        colors.D2L.LS[k] = hsl.LS
-                        break;
-                    }
-                box.style.backgroundColor = hsl.string
-                document.documentElement.style.setProperty(`--color${k+1}-${website}`, hsl.string)
-                k++
+    chrome.storage.local.get(['savedColors'], function(result) {
+        const savedColors = result.savedColors || [];
+        if (savedColors && savedColors.length > 1) {
+            let k = 0;
+            Object.keys(colors).forEach(website => {
+                document.querySelectorAll(`.${website}`).forEach(box => {
+                    let hsl = {}
+                    switch(website) {
+                        case 'drive':
+                            hsl = rgbToHsl(savedColors[0][k])
+                            colors.drive.H[k] = hsl.H
+                            colors.drive.LS[k] = hsl.LS
+                            break;
+                        case 'docs':
+                            hsl = rgbToHsl(savedColors[1][k])
+                            colors.docs.H[k] = hsl.H
+                            colors.docs.LS[k] = hsl.LS
+                            break;
+                        case 'D2L':
+                            hsl = rgbToHsl(savedColors[2][k])
+                            colors.D2L.H[k] = hsl.H
+                            colors.D2L.LS[k] = hsl.LS
+                            break;
+                        }
+                    box.style.backgroundColor = hsl.string
+                    document.documentElement.style.setProperty(`--color${k+1}-${website}`, hsl.string)
+                    k++
+                });
+                k = 0
             });
-            k = 0
-        });
-    }
+        }
+    
+    });
     slider.value = colors.drive.H[0]
   });
 
@@ -164,17 +167,18 @@ buttonDiv.addEventListener('click', (e) => {
         j = 0; colorsArray = []
     })
     /*for transparent color*/
-     if (colorsExport[1][2].length > 1) {
+    if (colorsExport[1][2].length > 1) {
          colorsExport[1][2] = colorsExport[1][2].replace("%", "").replace(")", ", 0.2)")
      }
 
-    browser.storage.local.set({ savedColors: colorsExport }).then(() => {
+    chrome.storage.local.set({ savedColors: colorsExport }, function() {
         document.getElementById('message').textContent = "Color schemes saved!\r\nReload your webpages to see the changes.";
         setTimeout(() => {
             document.getElementById('message').textContent = "";
-        }, 2500);
-    })
-    } 
+            }, 2500);
+        });
+    }
+
     else if (e.target.id == 'reset') {
         let k = 0;
 

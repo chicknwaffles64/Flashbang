@@ -5,12 +5,14 @@
 }
 
 /*GOOGLE DOCS HOMEPAGE*/
+
+
     .docs-homescreen-grid-item-title, 
     .docs-hs-tmp-contractedheader-text, 
     .docs-homescreen-templates-templateview-title, 
     .docs-homescreen-itemholder-content, 
     .docs-homescreen-owner-filter-label-text{
-        color: white;
+        color: white !important;
     }
     .docs-homescreen-templates-templateview-style, 
     .docs-homescreen-grid-item-time-container, 
@@ -24,7 +26,7 @@
         background-color: #2e2b2b !important;
     }
     .docs-homescreen-floater-header, .docs-homescreen-container{
-        background-color: #272524;
+        background-color: #272524 !important;
     }
         .goog-menuitem-content, .goog-menu-button-hover{
             color: #5f5b5b !important;
@@ -33,7 +35,7 @@
             color: #1b1b1b !important;
         }
     .docs-homescreen-grid-header{
-        background: none;
+        background: none !important;
     }
     .goog-control-hover{
         border-radius: 0 !important;
@@ -42,8 +44,8 @@
         background-color: rgb(110, 110, 110) !important;
     }
         .docs-homescreen-grid-item{
-            border: 1px solid black;
-            background-color: #302f2f;
+            border: 1px solid black !important;
+            background-color: #302f2f !important;
         }
 
 /*TOP TOOLBAR SECTION*/
@@ -107,11 +109,11 @@
     }
 
     #docs-menubar{
-        max-height: 20px;
-        margin-top: 18px;
-        padding-bottom: 4px;
-        border-left: solid 1px #c8c8c8;
-        border-right: solid 1px white;
+        max-height: 20px !important ;
+        margin-top: 18px !important;
+        padding-bottom: 4px !important;
+        border-left: solid 1px #c8c8c8 !important;
+        border-right: solid 1px white !important;
     }
     
     /*Main editor toolbar*/
