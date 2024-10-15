@@ -163,6 +163,34 @@
     .docs-floating-navigation-button-outer-box:hover {
         background: #999999 !important;
     }
+    /*Oct. 15 2024 - Google docs tabs update*/
+    .chapter-item-label-and-buttons-container-selected {
+        background-color: #373737 !important;
+    }
+    .chapter-item-label-and-buttons-container {
+        border-radius: 8px !important
+    }
+    .chapterItemIconContainer > .docs-icon,
+    .chapter-overflow-menu-button > .goog-button {
+        background-color: #d9d9d9 !important;
+    }
+    .kix-outlines-widget-header-contents {
+        background-color: transparent !important;
+    }
+    .chapter-item-label-and-buttons-container:hover {
+        background-color: var(--hue3) !important;
+    }
+    .goog-flat-button.chapter-arrow > .docs-icon {
+        filter: invert() !important;
+    }
+    .goog-flat-button.chapter-arrow:hover{
+        background-color: none !important;
+    }
+/*
+.docs-icon {
+    filter: invert() !important;
+}
+/*
 /*.kix-page-paginated{
         filter: brightness(0.9);
         will-change: filter;
