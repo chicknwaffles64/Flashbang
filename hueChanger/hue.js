@@ -77,9 +77,13 @@ let colors = {
 document.addEventListener('DOMContentLoaded', async () => {
     const { savedColors } = await browser.storage.local.get("savedColors");
     if (savedColors && savedColors.length > 1) {
+        //set toggle switch first
+        if (savedColors[1][1] == 'hsl(0, 0%, 13%)') document.getElementById('check').checked = 'checked'
+
         let k = 0;
         Object.keys(colors).forEach(website => {
             document.querySelectorAll(`.${website}`).forEach(box => {
+                if (k > 2) return;
                 let hsl = {}
                 switch(website) {
                     case 'drive':
@@ -88,6 +92,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                         colors.drive.LS[k] = hsl.LS
                         break;
                     case 'docs':
+                        if (k == 1) {
+                            hsl = rgbToHsl(savedColors[1][5])
+                            colors.docs.H[k] = hsl.H
+                            colors.docs.LS[k] = hsl.LS
+                            break
+                        }
+
                         hsl = rgbToHsl(savedColors[1][k])
                         colors.docs.H[k] = hsl.H
                         colors.docs.LS[k] = hsl.LS
@@ -118,6 +129,9 @@ let H = colors.drive.H[0]
 let LS = colors.drive.LS[0]
 
 document.getElementById('colorOuter').addEventListener('click', (e) => {
+
+    if (e.target.classList.contains('toggle')) return
+    
     if (!e.target.classList.contains('selected')) {
         document.querySelectorAll('COLORBLOCK').forEach (div => {
             div.classList.remove('selected')
@@ -163,10 +177,25 @@ buttonDiv.addEventListener('click', (e) => {
         colorsExport.push(colorsArray); 
         j = 0; colorsArray = []
     })
-    /*for transparent color*/
-     if (colorsExport[1][2].length > 1) {
-         colorsExport[1][2] = colorsExport[1][2].replace("%", "").replace(")", ", 0.2)")
-     }
+    //for transparent color - specifically google docs
+    if (colorsExport[1][2].length > 1) {
+        colorsExport[1][2] = colorsExport[1][2].replace("%", "").replace(")", ", 0.2)")
+    }
+    //for black filter - google docs
+    const checkbox = document.getElementById('check')
+    if (checkbox.checked) {
+        colorsExport[1][5] = colorsExport[1][1] //save in memory
+        colorsExport[1][1] = 'hsl(0, 0%, 13%)'
+        colorsExport[1][3] = 'rgb(220, 220, 220)'
+        colorsExport[1][4] = 'invert()'
+
+    }
+    else { 
+        colorsExport[1][3] = 'rgb(32, 32, 32)'
+        colorsExport[1][4] = 'none'
+        colorsExport[1][5] = colorsExport[1][1]
+    }
+
 
     browser.storage.local.set({ savedColors: colorsExport }).then(() => {
         document.getElementById('message').textContent = "Color schemes saved!\r\nReload your webpages to see the changes.";

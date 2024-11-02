@@ -2,8 +2,16 @@
     --hue1: hsl(257, 98%, 77%);
     --hue2: hsl(240, 50%, 75%);
     --hue3: hsla(192, 100%, 50%, 0.2);
+    --filter1: rgb(32, 32, 32);
+    --filter2: none;
 }
-
+/*google docs editior total dark mode*/
+#docs-toolbar .docs-icon {
+    filter: var(--filter2) !important;
+}
+#docs-equationtoolbar .goog-inline-block{
+    background-color: var(--filter1);
+}
 /*GOOGLE DOCS HOMEPAGE*/
     .docs-homescreen-grid-item-title, 
     .docs-hs-tmp-contractedheader-text, 
@@ -61,7 +69,7 @@
 #docs-primary-toolbars,
 #docs-side-toolbar,
 .docs-titlebar-badge,
-.jfk-button,
+
 .goog-toolbar-button,
 .goog-toolbar-menu-button,
 .docs-companion-app-switcher-container,
@@ -186,10 +194,11 @@
     .goog-flat-button.chapter-arrow:hover{
         background-color: none !important;
     }
-/*
-.docs-icon {
-    filter: invert() !important;
+
+.goog-toolbar-menu-button-caption{
+    color: var(--filter1) !important;
 }
+
 /*
 /*.kix-page-paginated{
         filter: brightness(0.9);
