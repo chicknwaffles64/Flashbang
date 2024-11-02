@@ -6,7 +6,7 @@
     --filter2: none;
 }
 /*google docs editior total dark mode*/
-#docs-toolbar .docs-icon {
+.docs-icon {
     filter: var(--filter2) !important;
 }
 #docs-equationtoolbar .goog-inline-block{
