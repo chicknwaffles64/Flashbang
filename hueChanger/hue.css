@@ -7,9 +7,9 @@
     --color2-docs: hsl(240, 100%, 82%);
     --color3-docs: hsla(192, 100%, 50%);
 
-    --color1-D2L: hsl(204, 100%, 71%);
-    --color2-D2L: hsl(264, 68%, 50%);
-    --color3-D2L: hsl(260, 34%, 15%);
+    --color1-D2L: hsl(210, 82%, 85%);
+    --color2-D2L: hsl(199, 100%, 71%);
+    --color3-D2L: hsl(161, 47%, 70%);
 }
 #CB1-drive{ background-color: var(--color1-drive);}
 #CB2-drive{ background-color: var(--color2-drive);}

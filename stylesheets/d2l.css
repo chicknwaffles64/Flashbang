@@ -1,43 +1,122 @@
 :root{
-    --hue1: hsl(204, 100%, 71%); 
-    --hue2: hsl(264, 68%, 50%);
-    --hue3: hsl(260, 34%, 15%);
+    --hue1: hsl(210, 82%, 85%); 
+    --hue2: hsl(199, 100%, 71%);
+    --hue3: hsl(161, 47%, 70%);
+
+    --white1: hsl(0, 0%, 85%);
+    --black1: #1f1f1f;
+    --black2: #222120;
+    --black3: #2a2a2a;
+
+    --d2l-color-regolith: rgb(65, 64, 63); /*some block backgrounds, table header color*/
+    --d2l-color-mica: white; /*some tile borders*/
+    --d2l-color-celestine: var(--hue2); /*hyperlinks 1*/
+    --d2l-color-celestine-minus-1: var(--hue2); /*hyperlink hover*/
+    --d2l-branding-primary-color: var(--hue3); /*top border*/
+    --d2l-color-tungsten: var(--hue1); /*icon color, and some text color*/
+    --d2l-color-celestine-plus-2: rgb(41, 41, 41);  /*hover for "content grades assesment" menu*/
+    --d2l-color-mica: rgb(173, 173, 173); /*table border*/
+
+}
+table, p, span{
+    color:white !important;
+}
+/*top banner 1*/
+.d2l-navigation-s{
+    background-color: var(--black3)!important; }
+
+/*top banner 2*/
+.d2l-branding-navigation-background-color{
+    background-color: var(--black1) !important; 
+}
+/*notifications, account settings dropdown list*/
+.d2l-navigation-s-notification *,
+.d2l-personal-tools-list{
+    background-color: var(--black3) !important;
 }
 
-*{
-    color: rgb(223, 223, 223) !important;
-    background: none !important;
-    background-color: #222120 !important;
-}
-d2l-navigation-main-header *, d2l-navigation-main-header{
-    background-color: #2a2a2a !important;
+/*D2L BACKGROUND*/
+.d2l-body, #d2l_body,
+.d2l-tiles-container{
+    background-color: var(--black2) !important;
 }
 
-d2l-navigation-main-footer, d2l-navigation-main-footer * {
-    background-color: #1f1f1f !important;
+/*HOMEPAGE, COURSE HOME PAGE tile color*/
+.d2l-tile{
+    background-color: var(--black3) !important;
+}
+/*tile hover*/
+.d2l-list-item-action-hover{
+    background-color: #404040 !important;
 }
 
-.d2l-link{
-    color: var(--hue1) !important;
+/*CONTENT background left*/
+.d2l-twopanelselector-side.d2l-twopanelselector-side-sep, 
+.d2l-twopanelselector-side-bg.d2l-twopanelselector-side-sep{
+    background: var(--black1) !important}
+
+/*CONTENT background right*/
+.d2l-box.d2l-box-h.d2l-twopanelselector-main.d2l-page-main{
+    background: var(--black2) !important;
 }
-.d2l-folderdates-wrapper *, .d2l-skeletize *{
-    color: darkgray !important;
+
+
+/*CONTENT block*/
+.d2l-collapsepane .d2l-collapsepane-content{
+    background-color: var(--black3) !important;
 }
-.d2l-collapsepane, .d2l-collapsepane-header{
-background: rgb(38, 38, 38) !important;
+
+
+/*course selection dropdown menu*/
+#courseSelectorId, .d2l-course-selector-item{
+    background-color: var(--black3) !important; }
+
+.d2l-course-selector-item.d2l-course-selector-item-pinned{
+    background-color: hsl(from var(--hue1) h 20 20) !important; }
+
+/*hover on courses*/
+.d2l-course-selector-item:hover{
+    background-color: hsl(from var(--hue1) h 40 20) !important;
 }
-.d2l-button {
-    border: 2px solid rgb(131, 131, 131) !important;
+
+.d2l-le-disc-post{
+    background-color: var(--black3) !important;
 }
-d2l-menu-item-link:hover{
-    color: var(--hue1) !important;
+
+
+/*TEXT*/
+.d2l-textblock{/*maintext 2*/
+    color:var(--hue3) !important;
 }
-.d2l-list-item-action-hover *{
-    background-color: var(--hue3) !important;
+.d2l-typography, .d2l-textblock-strong{ /*maintext 1*/
+    color: var(--white1) !important;
 }
-.vui-selected, .vui-selected + li{
-    border-top: 4px solid var(--hue2) !important;
+.d2l-my-courses-widget { /*courses tiles on the homepage (shadowDOM)*/
+    color: var(--black1) !important;
 }
-#d2l_1_17_334 *{
-    color: black !important;
+
+/*header hyperlinks*/
+.d2l-navigation-s-group, a.d2l-navigation-s-link, a.d2l-navigation-s-link:link, a.d2l-navigation-s-link:visited, div.d2l-navigation-s-item > span, .d2l-navigation-s-group-text {
+    color:var(--hue1) !important;
+}
+.d2l-link { /*hyperlinks 2*/
+    color:var(--hue2) !important;
+}
+.d2l-link:hover, a:hover{ /*hyperlinks 2 hover*/
+    filter: contrast(250%) !important;
+}
+
+/*TABLES (for grades,)*/
+.d2l-table > tbody, .d2l-table > tfoot{
+    background-color: var(--d2l-color-regolith);
+}
+
+/*ICONS*/
+/*Small icons in CONTENT, these two rules below must go together*/
+.d2l-container-icon, .d2l-image{ filter: invert() !important; }
+.d2l-container-icon .d2l-textblock{ filter: invert() !important; }
+
+/*Quiz invert colors*/
+.dsr + #d_content_r_c1{
+    filter: invert() !important;
 }
