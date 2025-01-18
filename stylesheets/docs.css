@@ -1,8 +1,8 @@
 :root{
-    --hue1: hsl(257, 98%, 77%);
-    --hue2: hsl(240, 50%, 75%);
-    --hue3: hsla(192, 100%, 50%, 0.2);
-    --filter1: rgb(32, 32, 32);
+    --hue1: hsl(195, 50%, 75%);
+    --hue2: hsl(165, 90%, 77%);
+    --hue3: hsl(200, 100%, 50%);
+    --filter1: hsl(0, 0%, 13%);
     --filter2: none;
 }
 /*google docs editior total dark mode*/
@@ -10,8 +10,16 @@
     filter: var(--filter2) !important;
 }
 #docs-equationtoolbar .goog-inline-block{
-    background-color: var(--filter1);
+   filter: var(--filter2);
 }
+#insert-equation-button{
+    color: var(--filter1) !important;
+}
+#formatOptionsButton > div > div{
+    filter: var(--filter2);
+}
+
+
 /*GOOGLE DOCS HOMEPAGE*/
     .docs-homescreen-grid-item-title, 
     .docs-hs-tmp-contractedheader-text, 
@@ -76,7 +84,7 @@
 .kix-titlebar-mode-switcher,
 #scb-quick-actions-menu
 {
-    background-color: var(--hue2) !important;
+    background-color: var(--hue1) !important;
 }
 
 .docs-titlebar-badge, 
@@ -152,14 +160,19 @@
     color: #ffffff !important;
     }
     .navigation-item.location-indicator-highlight *{
-        color: var(--hue1) !important;
+        color: var(--hue2) !important;
     }
-    .navigation-item.goog-button-hover *,
+    .navigation-item.goog-button-hover,
     .goog-toolbar-button-hover, 
     .goog-toolbar-menu-button-hover{
-        background-color: var(--hue3) !important;
+        background-color: hsl(from var(--hue3) h s l / 0.2) !important;
     }
-
+    .chapterItemIconContainer > .docs-icon,
+    #docs-revisions-appbarbutton > .docs-icon,
+    #docs-docos-commentsbutton > .docs-icon,
+    #docs-meet-in-editors-entrypointbutton > .goog-inline-block {
+        filter: invert() !important;
+    }
 
     .navigation-widget-row-controls-control, 
     .navigation-widget-hat-close-button-outer-box,
@@ -178,15 +191,16 @@
     .chapter-item-label-and-buttons-container {
         border-radius: 8px !important
     }
-    .chapterItemIconContainer > .docs-icon,
-    .chapter-overflow-menu-button > .goog-button {
-        background-color: #d9d9d9 !important;
+    
+    .chapter-overflow-menu-button > .goog-button,
+    .navigation-widget-hat-close-button-outer-box.goog-inline-block {
+        background-color: var(--hue1) !important;
     }
     .kix-outlines-widget-header-contents {
         background-color: transparent !important;
     }
     .chapter-item-label-and-buttons-container:hover {
-        background-color: var(--hue3) !important;
+        background-color: hsl(from var(--hue3) h s l / 0.2) !important;
     }
     .goog-flat-button.chapter-arrow > .docs-icon {
         filter: invert() !important;
