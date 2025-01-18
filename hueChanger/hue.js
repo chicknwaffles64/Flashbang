@@ -50,12 +50,12 @@ const OG = {
         LS: ["19%, 12%", "32%, 14%", "17%, 40%"]
     },
     docs: {
-        H : [257, 240, 192],
-        LS: ["98%, 77%", "50%, 75%", "100%, 50%"]
+        H : [195, 165, 200],
+        LS: ["50%, 75%", "98%, 77%", "100%, 50%"]
     },
     D2L: {
-        H : [204, 264, 260],
-        LS : ["100%, 71%", "68%, 50%", "34%, 15%"]
+        H : [210, 199, 161],
+        LS : ["82%, 85%", "100%, 71%", "47%, 70%"]
     }
 }
 let colors = {
@@ -64,8 +64,8 @@ let colors = {
         LS: ["19%, 12%", "32%, 14%", "17%, 40%"]
     },
     docs: {
-        H : [257, 240, 192],
-        LS: ["98%, 77%", "50%, 75%", "100%, 50%"]
+        H : [195, 165, 200],
+        LS: ["50%, 75%", "98%, 77%", "100%, 50%"]
     },
     D2L: {
         H : [210, 199, 161],
@@ -180,15 +180,12 @@ buttonDiv.addEventListener('click', (e) => {
         colorsExport.push(colorsArray); 
         j = 0; colorsArray = []
     })
-    //for transparent color - specifically google docs
-    if (colorsExport[1][2].length > 1) {
-        colorsExport[1][2] = colorsExport[1][2].replace("%", "").replace(")", ", 0.2)")
-    }
+
     //for black filter - google docs
     const checkbox = document.getElementById('check')
     if (checkbox.checked) {
-        colorsExport[1][5] = colorsExport[1][1] //save in memory
-        colorsExport[1][1] = 'hsl(0, 0%, 13%)'
+        colorsExport[1][5] = colorsExport[1][0] //save in memory
+        colorsExport[1][0] = 'hsl(0, 0%, 13%)'
         colorsExport[1][3] = 'rgb(220, 220, 220)'
         colorsExport[1][4] = 'invert()'
 
@@ -196,7 +193,7 @@ buttonDiv.addEventListener('click', (e) => {
     else { 
         colorsExport[1][3] = 'rgb(32, 32, 32)'
         colorsExport[1][4] = 'none'
-        colorsExport[1][5] = colorsExport[1][1]
+        colorsExport[1][5] = colorsExport[1][0]
     }
 
     

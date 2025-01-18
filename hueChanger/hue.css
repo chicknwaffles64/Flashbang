@@ -1,15 +1,15 @@
 :root{
-    --color1-drive: hsl(211, 52%, 14%);
-    --color2-drive: hsl(207, 40%, 17%);
-    --color3-drive: hsl(229, 22%, 35%);
+  --color1-drive: hsl(211, 52%, 14%);
+  --color2-drive: hsl(207, 40%, 17%);
+  --color3-drive: hsl(229, 22%, 35%);
 
-    --color1-docs: hsl(257, 98%, 77%);
-    --color2-docs: hsl(240, 100%, 82%);
-    --color3-docs: hsla(192, 100%, 50%);
+  --color1-docs: hsl(195, 100%, 82%);
+  --color2-docs: hsl(165, 98%, 77%);
+  --color3-docs: hsl(200, 100%, 50%);
 
-    --color1-D2L: hsl(210, 82%, 85%);
-    --color2-D2L: hsl(199, 100%, 71%);
-    --color3-D2L: hsl(161, 47%, 70%);
+  --color1-D2L: hsl(210, 82%, 85%);
+  --color2-D2L: hsl(199, 100%, 71%);
+  --color3-D2L: hsl(161, 47%, 70%);
 }
 #CB1-drive{ background-color: var(--color1-drive);}
 #CB2-drive{ background-color: var(--color2-drive);}
