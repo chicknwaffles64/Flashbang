@@ -32,9 +32,10 @@ table, p, span{
 .d2l-branding-navigation-background-color{
     background-color: var(--black1) !important; 
 }
-/*notifications, account settings dropdown list*/
+/*notifications, account settings dropdown list, popups*/
 .d2l-navigation-s-notification:nth-of-type(2) *,
-.d2l-personal-tools-list{
+.d2l-personal-tools-list,
+.ddial_o2{
     background-color: var(--black3) !important;
 }
 
@@ -63,12 +64,10 @@ table, p, span{
     background: var(--black2) !important;
 }
 
-
 /*CONTENT block*/
 .d2l-collapsepane .d2l-collapsepane-content{
     background-color: var(--black3) !important;
 }
-
 
 /*course selection dropdown menu*/
 #courseSelectorId, .d2l-course-selector-item{
@@ -81,7 +80,7 @@ table, p, span{
 .d2l-course-selector-item:hover{
     background-color: hsl(from var(--hue1) h 40 20) !important;
 }
-/*dicussion posts backgound*/
+/*discussion posts backgound*/
 .d2l-le-disc-post{
     background-color: var(--black3) !important;
 }
@@ -90,6 +89,17 @@ table, p, span{
 background: var(--black3) !important;
 }
 
+/*squares on the right side of CONTENT page*/
+#d2l_1_22_253, #d2l_1_21_67{
+    background-color: rgb(94, 94, 94) !important;
+}
+
+/*Content Navigator*/
+.d2l-page-collapsepane-content,
+.d2l-page-collapsepane-content-inner.d2l-scrollbar,
+#ContentNavigator .vui-list > .vui-selected{
+    background: var(--black3) !important;
+}
 
 /*gradient on CONTENT page*/
 #ContentModuleTree .d2l-le-TreeAccordionItem.d2l-le-TreeAccordionItem-Selected > a.d2l-le-TreeAccordionItem-anchor::before, 
