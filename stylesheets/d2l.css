@@ -13,10 +13,13 @@
     --d2l-color-celestine: var(--hue2); /*hyperlinks 1*/
     --d2l-color-celestine-minus-1: var(--hue2); /*hyperlink hover*/
     --d2l-branding-primary-color: var(--hue3); /*top border*/
-    --d2l-color-tungsten: var(--hue1); /*icon color, and some text color*/
-    --d2l-color-celestine-plus-2: rgb(41, 41, 41);  /*hover for "content grades assesment" menu*/
+    --d2l-color-tungsten: hsl(from var(--hue1) h s 75); /*icon color, and some text color*/
+    --d2l-color-celestine-plus-2: hsl(from var(--hue1) h 25 35);  /*hover for "content grades assesment" menu*/
     --d2l-color-mica: rgb(173, 173, 173); /*table border*/
-
+}
+/*faded out background that appears behind popups*/
+.d2l-shim.d2l-shim-opaque{
+    background: rgba(0, 0, 0, 0.4) !important;
 }
 table, p, span{
     color:white !important;
@@ -29,9 +32,10 @@ table, p, span{
 .d2l-branding-navigation-background-color{
     background-color: var(--black1) !important; 
 }
-/*notifications, account settings dropdown list*/
-.d2l-navigation-s-notification *,
-.d2l-personal-tools-list{
+/*notifications, account settings dropdown list, popups*/
+.d2l-navigation-s-notification:nth-of-type(2) *,
+.d2l-personal-tools-list,
+.ddial_o2{
     background-color: var(--black3) !important;
 }
 
@@ -60,12 +64,10 @@ table, p, span{
     background: var(--black2) !important;
 }
 
-
 /*CONTENT block*/
 .d2l-collapsepane .d2l-collapsepane-content{
     background-color: var(--black3) !important;
 }
-
 
 /*course selection dropdown menu*/
 #courseSelectorId, .d2l-course-selector-item{
@@ -78,11 +80,47 @@ table, p, span{
 .d2l-course-selector-item:hover{
     background-color: hsl(from var(--hue1) h 40 20) !important;
 }
-
+/*discussion posts backgound*/
 .d2l-le-disc-post{
     background-color: var(--black3) !important;
 }
+/*tabs 1 (found in settings -> account settings )*/
+.d_tabs_header .d_tabs_c{
+background: var(--black3) !important;
+}
 
+/*squares on the right side of CONTENT page*/
+#d2l_1_22_253, #d2l_1_21_67{
+    background-color: rgb(94, 94, 94) !important;
+}
+
+/*Content Navigator*/
+.d2l-page-collapsepane-content,
+.d2l-page-collapsepane-content-inner.d2l-scrollbar,
+#ContentNavigator .vui-list > .vui-selected{
+    background: var(--black3) !important;
+}
+
+/*gradient on CONTENT page*/
+#ContentModuleTree .d2l-le-TreeAccordionItem.d2l-le-TreeAccordionItem-Selected > a.d2l-le-TreeAccordionItem-anchor::before, 
+#ContentModuleTree .d2l-le-TreeAccordionItem.d2l-le-TreeAccordionItem-Selected > a.d2l-le-TreeAccordionItem-anchor:link::before, 
+#ContentModuleTree .d2l-le-TreeAccordionItem.d2l-le-TreeAccordionItem-Selected > a.d2l-le-TreeAccordionItem-anchor:visited::before, 
+#ContentModuleTree .d2l-le-TreeAccordionItem.d2l-le-TreeAccordionItem-Selected > a.d2l-le-TreeAccordionItem-anchor:hover::before, 
+#ContentModuleTree .d2l-le-TreeAccordionItem.d2l-le-TreeAccordionItem-Selected > a.d2l-le-TreeAccordionItem-anchor:focus::before
+{
+        background: linear-gradient(to right, rgba(227, 233, 241, 0) 0, 
+        hsl(from var(--hue3) h s 20) 400px) !important;
+}
+
+/*background for left-side tabs AND bar chart in ASSESSMENT -> Progress*/
+.d2l-datalist-nesteditem-accordion .d2l-datalist-nesteditem-accordion > .d2l-datalist-item-content{
+    background-color: var(--black3) !important;
+    border-color: var(--black3) !important;
+}
+.d2l-charttooltip,
+.d2l-datalist-nesteditem-accordion.d2l-le-DataListItem-Selected > .d2l-datalist-item-content.d2l-datalist-item-content-first{
+    background-color: var(--black2) !important;
+}
 
 /*TEXT*/
 .d2l-textblock{/*maintext 2*/
