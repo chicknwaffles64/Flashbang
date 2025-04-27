@@ -122,6 +122,15 @@ background: var(--black3) !important;
     background-color: var(--black2) !important;
 }
 
+/**background of text (assigments, etc.)**/
+#z_j > .dco_c {
+    background-color: var(--black2) !important;
+}
+.dcs_r.vui-changed {
+    background-color: var(--black2) !important;
+}
+
+
 /*TEXT*/
 .d2l-textblock{/*maintext 2*/
     color:var(--hue3) !important;
