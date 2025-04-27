@@ -1,4 +1,4 @@
-# Flashbang v1.5.1
+# Flashbang v1.5.3
 >*A Chrome/Firefox extension which applies dark mode to Google Drive, Docs, Slides and *D2L Brightspace* using CSS stylesheets.* 
 
 <img src="https://github.com/user-attachments/assets/13147961-ed87-4929-a2e5-506f983a2a68" style="display: block; margin-left: auto; margin-right: auto;"><br>

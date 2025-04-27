@@ -1,5 +1,5 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "Flashbang",
     "version": "1.5.3",
   
@@ -34,11 +34,13 @@
         
       }
     ],
-    "action": {
+    "browser_action": {
+        "browser_style": true,
         "default_title": "Flashbang"
     },
     "options_ui": {
-      "page": "./hueChanger/hue.html"
+      "page": "./hueChanger/hue.html",
+      "browser_style": true
   },
   "permissions": ["storage"]
   
