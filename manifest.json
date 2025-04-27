@@ -1,7 +1,7 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Flashbang",
-    "version": "1.5.1",
+    "version": "1.5.3",
   
     "description": "Dark mode for D2L, Google Docs & Google Drive to ease those weary eyes.",
   
@@ -34,13 +34,11 @@
         
       }
     ],
-    "browser_action": {
-        "browser_style": true,
+    "action": {
         "default_title": "Flashbang"
     },
     "options_ui": {
-      "page": "./hueChanger/hue.html",
-      "browser_style": true
+      "page": "./hueChanger/hue.html"
   },
   "permissions": ["storage"]
   
